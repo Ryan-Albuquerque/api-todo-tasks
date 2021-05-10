@@ -1,5 +1,8 @@
 const express = require('express');
 
+const taskController = require('../controllers/task_controller.js');
+const taskValidator = require('../middlewares/validators/task_validator.js');
+
 const routes = express.Router();
 
 routes.get('/tasks', taskController.list);
