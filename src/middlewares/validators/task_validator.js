@@ -80,12 +80,6 @@ const _createTask = (req,res,next) => {
     //     })
     // }
 
-    if(!done){
-        return res.status(400).json({
-            message: "Status não informado"
-        })
-    }
-
     if(typeof done !== 'boolean'){
         return res.status(400).json({
             message: "Status não é válido"
