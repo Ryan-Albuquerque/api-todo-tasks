@@ -1,5 +1,6 @@
 const taskService = require('../../services/task_service');
 const utils = require('../../utils/index');
+const moment = require('moment');
 
 let taskValidator = {};
 
@@ -73,12 +74,12 @@ const _createTask = (req,res,next) => {
         })
     }
 
-    // to do: implement date validator
-    // if(typeof targetDate !== Date){
-    //     return res.status(400).json({
-    //         message: "Data de entrega não é válida"
-    //     })
-    // }
+    
+    if( typeof  moment(targetDate).date() !== 'number' ||  moment(targetDate).month() !== 'number' ||  moment(targetDate).year() !== 'number'){
+        return res.status(400).json({
+            message: "Data de entrega não é válida"
+        })
+    }
 
     if(typeof done !== 'boolean'){
         return res.status(400).json({
@@ -130,12 +131,11 @@ const _updateTask = async (req,res,next) =>{
     }
 
 
-    // to do: implement date validator
-    // if(targetDate && typeof targetDate !== Date){
-    //     return res.status(400).json({
-    //         message: "Data de entrega não é válida"
-    //     })
-    // }
+    if( typeof  moment(targetDate).date() !== 'number' ||  moment(targetDate).month() !== 'number' ||  moment(targetDate).year() !== 'number'){
+        return res.status(400).json({
+            message: "Data de entrega não é válida"
+        })
+    }
 
 
     if(done && typeof done !== 'boolean'){
