@@ -75,7 +75,7 @@ const _createTask = (req,res,next) => {
     }
 
     
-    if( typeof  moment(targetDate).date() !== 'number' ||  moment(targetDate).month() !== 'number' ||  moment(targetDate).year() !== 'number'){
+    if( typeof moment(targetDate).date() !== 'number' || typeof moment(targetDate).month() !== 'number' || typeof moment(targetDate).year() !== 'number'){
         return res.status(400).json({
             message: "Data de entrega não é válida"
         })
@@ -131,7 +131,7 @@ const _updateTask = async (req,res,next) =>{
     }
 
 
-    if( typeof  moment(targetDate).date() !== 'number' ||  moment(targetDate).month() !== 'number' ||  moment(targetDate).year() !== 'number'){
+    if( typeof  moment(targetDate).date() !== 'number' || typeof moment(targetDate).month() !== 'number' || typeof moment(targetDate).year() !== 'number'){
         return res.status(400).json({
             message: "Data de entrega não é válida"
         })
